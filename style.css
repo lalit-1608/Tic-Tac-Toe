@@ -1,0 +1,186 @@
+/* Background */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f4f4f9, #e3f2fd);
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+/* Mode + Score */
+.mode-select, .scoreboard {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #fdfdfd;
+  border: 2px solid #ddd;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background: #f0f8ff;
+  transform: scale(1.05);
+}
+
+/* Player Colors */
+.cell.x { color: #007bff; }    /* Blue for X */
+.cell.o { color: #ff6f61; }    /* Coral/Orange for O */
+
+/* Winning highlight */
+.cell.win {
+  background: #fff3cd;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px #ffd700;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #007bff, #6f42c1);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #5a2a99);
+  transform: scale(1.05);
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.popup.active { visibility: visible; }
+
+.popup-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  color: #333;
+}
+
+.popup-content h2 {
+  margin-bottom: 1rem;
+  color: #ff6f61;
+}
+
+/* Dark Theme */
+body.dark {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #eee;
+}
+
+body.dark .container {
+  background: #1e293b;
+  box-shadow: 0 8px 25px rgba(255,255,255,0.05);
+}
+
+body.dark h1 { color: #21e6c1; }
+
+body.dark .cell {
+  background: #0f3460;
+  border: 2px solid #2f4f75;
+  color: #eee;
+}
+
+body.dark .cell:hover {
+  background: #1a4b8c;
+}
+
+body.dark .cell.win {
+  background: #ffd700;
+  color: #000;
+}
+
+body.dark button {
+  background: linear-gradient(135deg, #21e6c1, #6f42c1);
+  color: #000;
+}
+
+body.dark button:hover {
+  background: linear-gradient(135deg, #1db99c, #5a2a99);
+}
+
+body.dark .popup-content {
+  background: #16213e;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    gap: 6px;
+  }
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+}
